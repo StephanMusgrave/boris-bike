@@ -2,6 +2,7 @@ require "docking_station"
 describe DockingStation do
   let(:bike) { Bike.new}
   let(:station) { DockingStation.new }
+  let(:station) { DockingStation.new(:capacity => 20)}
  
   it "should be able to accept a bike" do
     bike = Bike.new
@@ -15,6 +16,12 @@ describe DockingStation do
     station.dock(bike)
     station.release(bike)
     expect(station.bike_count).to eq(0)
+  end
+
+  it "should know when it's full" do
+    expect(station).not_to be_full
+    20.times { station.dock(Bike.new) }
+    expect(station).to be_full
   end
 
 end
