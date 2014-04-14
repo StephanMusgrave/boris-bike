@@ -12,5 +12,9 @@ class Garage
     # the capacity() method in BikeContainer
     @capacity = options.fetch(:capacity, capacity)
   end
+  
+  def mend(bike)
+    bike.fix!
+  end
 
 end
