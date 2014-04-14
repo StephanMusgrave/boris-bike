@@ -15,6 +15,7 @@ describe "boris-bike" do
     bike.break!
     expect(bike).to be_broken
   end
+  
 
 
 
