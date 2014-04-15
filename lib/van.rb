@@ -24,6 +24,16 @@ class Van
     @broken_bikes.clear
   end
 
+  def collect_good_bikes(container)
+    @good_bikes << container.bikes.select(&:broken?)  
+  end
+
+def deliver_good_bikes(container)
+    container.good_bikes << bikes.select(&:broken?)
+    @good_bikes.clear
+  end
+
+
   def broken_bikes
     @broken_bikes
   end

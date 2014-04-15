@@ -7,6 +7,10 @@ class Bike
     @broken
   end
 
+  def good?
+    @broken
+  end
+
   def break!
     @broken = true
   end

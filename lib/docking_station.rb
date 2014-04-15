@@ -6,11 +6,24 @@ class DockingStation
   include BikeContainer
 
   def initialize(options = {})
+  	@good_bikes = []
+    @broken_bikes = []
     # self.capcity is calling the capacity=() method
     # defined in BikeContainer
     # capacity (the second argument to fetch()) is calling
     # the capacity() method in BikeContainer
     @capacity = options.fetch(:capacity, capacity)
   end
+
+  def broken_bikes
+    @broken_bikes
+  end
+
+  def good_bikes
+    @good_bikes
+  end
+
+
+
 
 end
