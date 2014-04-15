@@ -6,6 +6,8 @@ class Garage
   include BikeContainer
 
   def initialize(options = {})
+    @broken_bikes = []
+    @good_bikes = [] 
     # self.capcity is calling the capacity=() method
     # defined in BikeContainer
     # capacity (the second argument to fetch()) is calling
@@ -15,6 +17,14 @@ class Garage
   
   def mend(bike)
     bike.fix!
+  end
+
+  def broken_bikes
+    @broken_bikes
+  end
+
+  def good_bikes
+    @good_bikes
   end
 
 end
