@@ -7,25 +7,12 @@ describe Van do
   let(:station) { DockingStation.new(capacity: 20) }
   let(:garage) { Garage.new(capacity: 30) }
 
-
-  it "should collect a bike from a garage" do
-    container = garage
-    van.collect(bike,container)
-    expect(bike).to be_true
-  end
   
-  it "should collect a broken bike from a station" do
+  it "should collect broken bikes from a station" do
     bike.break!
-    container = station
-    # if bike.broken {van.collect(bike,container)} end
-    expect(bike).to be_true
-  end
-
-  it "should move a bike from a station to a garage" do
-    from_container = station
-    to_container = garage
-    van.move(bike,from_container,to_container)
-    expect(bike).to be_true
+    station.dock(bike)
+    van.collect_broken_bikes(station)
+    expect(van.broken_bikes).to_not be 0
   end
 
 end
