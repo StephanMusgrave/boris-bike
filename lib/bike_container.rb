@@ -3,7 +3,7 @@ module BikeContainer
   DEFAULT_CAPACITY = 10
 
   def bikes
-    @bikes ||= []
+    @bikes.flatten
   end
 
   def capacity
@@ -15,12 +15,12 @@ module BikeContainer
   end
 
   def bike_count
-    bikes.count
+    @bikes.count
   end
 
   def dock(bike)
-    raise "Station is full" if full?
-    bikes << bike
+    # raise "Station is full" if full?
+    @bikes << bike
   end
 
   def release(bike)
@@ -28,7 +28,7 @@ module BikeContainer
   end
 
   def full?
-    bike_count == capacity
+    @bikes.count == @capacity
   end
 
   def available_bikes
@@ -37,6 +37,10 @@ module BikeContainer
 
   def has_bikes?
     bike_count >= 1
+  end
+
+  def broken_bikes
+    @bikes.flatten.select { |bike| bike.broken? }
   end
 
 end

@@ -1,4 +1,5 @@
 require "docking_station"
+require 'bike'
 
 describe DockingStation do
   
@@ -40,6 +41,14 @@ describe DockingStation do
     station.dock(working_bike)
     station.dock(broken_bike)
     expect(station.available_bikes).to eq([working_bike])
+  end
+
+  it "should provide a list of all broken bikes" do
+    working_bike, broken_bike = Bike.new, Bike.new
+    broken_bike.break!
+    station.dock(working_bike)
+    station.dock(broken_bike)
+    expect(station.broken_bikes).to eq([broken_bike])
   end
 
 end
