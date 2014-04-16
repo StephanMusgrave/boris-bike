@@ -1,7 +1,7 @@
 require "van"
-require 'bike'
-# require 'garage'
-require 'docking_station'
+# require 'bike'
+# # require 'garage'
+# require 'docking_station'
 
 
 describe Van do
@@ -20,9 +20,10 @@ describe Van do
     station.dock(bike)
     van.collect_broken_bikes(station, station.broken_bikes)
     expect(van.broken_bikes).to eq([bike])
+    expect(station.broken_bikes.count).to eq 0
   end
 
-  it "should deliver broken bikes to a garage" do
+  xit "should deliver broken bikes to a garage" do
     bike = Bike.new
     van = Van.new
     station = DockingStation.new

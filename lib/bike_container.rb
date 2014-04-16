@@ -3,7 +3,7 @@ module BikeContainer
   DEFAULT_CAPACITY = 10
 
   def bikes
-    @bikes.flatten
+    @bikes ||= []
   end
 
   def capacity
