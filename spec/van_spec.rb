@@ -12,7 +12,7 @@ describe Van do
   # let(:garage) { Garage.new(capacity: 30) }
 
   
-  xit "should collect broken bikes from a station" do
+  it "should collect broken bikes from a station" do
     bike = Bike.new
     station = DockingStation.new
     van = Van.new
@@ -26,6 +26,7 @@ describe Van do
     bike = Bike.new
     van = Van.new
     station = DockingStation.new
+    garage = Garage.new
     bike.break!
     station.dock(bike)
     expect(station.broken_bikes.count).to eq 1
@@ -35,10 +36,10 @@ describe Van do
     # puts station.bikes
     # puts "--" * 20
     expect(van.broken_bikes.count).to eq(1)
-    van.deliver_broken_bikes(station)
+    van.deliver_broken_bikes(garage)
     # puts "--" * 20
     # puts station.broken_bikes
-    expect(station.broken_bikes.count).to eq 1
+    expect(garage.broken_bikes.count).to eq 1
   end
 
   xit "should collect good bikes from a garage" do

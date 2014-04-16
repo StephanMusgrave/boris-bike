@@ -3,7 +3,7 @@ require_relative 'bike_container'
 
 class DockingStation
   # This gives us all the methods that used to be in this class
-  # include BikeContainer
+  include BikeContainer
 
   def initialize(options = {})
   	@bikes = []
@@ -26,6 +26,15 @@ class DockingStation
 
 	def release(bike)
 		@bikes.delete(bike)
+	end
+
+	def release_broken(bike, van)
+		if van.class == Van
+			bikes.delete(bike)
+		else
+			raise "you cannot take these bikes"
+		end
+		# van.dock(bike)
 	end
 
 end
