@@ -32,9 +32,9 @@ describe Person do
 	end
 
 	it 'has no bike after docking' do
-		station = double :station, dock: ''
-		expect(person).not_to have_bike
+		station = double :station, dock: nil
 		person_with_bike.return_bike_to(station)
+		expect(person_with_bike).not_to have_bike
 	end
 
 
