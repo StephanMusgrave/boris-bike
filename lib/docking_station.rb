@@ -7,4 +7,17 @@ class DockingStation
 		@bikes.any?
 	end
 
+	def available_bikes
+		@bikes.reject {|bike| bike.broken?}
+	end
+
+	def dock(bike)
+		@bikes << bike
+		nil
+	end
+
+	def release_bike
+		@bikes.delete(available_bikes.pop)
+	end
+
 end
