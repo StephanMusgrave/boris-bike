@@ -35,6 +35,10 @@ describe DockingStation do
 		expect(station).to have_bikes
 	end
 
+	it 'releases a specific bike' do
+		expect(station.release(bike)).to eq bike
+	end
+
 	it "let's us know that we returned the bike and we don't have one " do
 		station = DockingStation.new
 		expect(station.dock(:bike)).to be_nil 
@@ -48,11 +52,15 @@ describe DockingStation do
 
 			it 'releases all broken bikes' do
 				expect(station.release_broken_bikes).to eq [broken_bike,broken_bike_two]
-
 			end
 
 			it 'has no bikes after releasing the broken bikes' do
+				station.release_broken_bikes
+				expect(station).not_to have_bikes
+			end
 
+			it 'shows us the broken bikes' do
+				expect(station.broken_bikes).to eq [broken_bike, broken_bike_two]
 			end
 
 	end
