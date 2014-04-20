@@ -20,4 +20,8 @@ class DockingStation
 		@bikes.delete(available_bikes.pop)
 	end
 
+	def release_broken_bikes
+		@bikes
+	end
+
 end

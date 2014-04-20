@@ -43,6 +43,7 @@ describe Person do
 		expect(person_with_bike).not_to have_bike
 	end
 
+	
 
 
 
