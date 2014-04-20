@@ -8,9 +8,8 @@ describe Van do
 	end
 
 	it 'picks up broken bikes from a place' do
-		# place = double :place ** original, replaced with line below **
-		place = double :place, release_broken_bikes: [:bike]
-		expect(place).to receive(:release_broken_bikes)
+     place = double :place 
+		expect(place).to receive(:release_broken_bikes).and_return([])
 		van.pickup_broken_bikes_from(place)
 	end
 
@@ -32,6 +31,12 @@ describe Van do
 		expect(van.bikes).to eq [:bike, :bike]
 	end
 
-	it 'drops brokem'
+	it 'drops broken bikes to a place' do
+		place = double :place
+		bike = double :bike, broken?: true
+		van = Van.new([bike])
+		expect(place).to receive(:dock)
+		van.drop_broken_bikes_into(place)
+	end
 
 end

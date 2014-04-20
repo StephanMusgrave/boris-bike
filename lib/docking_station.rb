@@ -1,12 +1,10 @@
+require_relative 'bike_container'
 class DockingStation
+  include BikeContainer
 	BROKEN_BIKE_SELECTOR = ->(bike){bike.broken?}
     
   def initialize(bikes=[])
 		@bikes = bikes
-	end
-
-	def has_bikes? 
-		@bikes.any?
 	end
 
 	def available_bikes
