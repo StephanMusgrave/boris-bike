@@ -50,12 +50,15 @@ describe DockingStation do
 			let (:station)					{ DockingStation.new([broken_bike, broken_bike_two])}
 
 
-			it 'releases all broken bikes' do
-				expect(station.release_broken_bikes).to eq [broken_bike,broken_bike_two]
+			it 'releases all broken bikes to van' do
+				van = double :van
+				expect(van).to receive(:dock).twice
+				station.drop_broken_bikes_into(van)
 			end
 
 			it 'has no bikes after releasing the broken bikes' do
-				station.release_broken_bikes
+				van = double :van, dock: be_nil
+				station.drop_broken_bikes_into(van)
 				expect(station).not_to have_bikes
 			end
 
