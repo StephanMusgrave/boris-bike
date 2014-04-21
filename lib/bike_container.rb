@@ -11,7 +11,7 @@ module BikeContainer
 	end
 
 	def bikes
-		@bikes
+		@bikes 
 	end
 
 	def release_bike
@@ -36,12 +36,12 @@ module BikeContainer
 		end
 	end
 
-	def drop_broken_bikes_into(place)
-		drop_into(place, broken_bikes)
+	def drop_bikes_into(place)
+			drop_into(place, available_bikes)
 	end
 
-	def drop_bikes_into(place)
-			drop_into(place, fixed_bikes)
+	def drop_broken_bikes_into(place)
+		drop_into(place, broken_bikes)
 	end
 
 end

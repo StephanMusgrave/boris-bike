@@ -29,7 +29,6 @@ shared_examples BikeContainer do
 	end
 
 	it "let's us know that we returned the bike and we don't have one " do
-		# station = DockingStation.new
 		expect(container.dock(:bike)).to be_nil 
 	end
 
@@ -61,6 +60,26 @@ shared_examples BikeContainer do
 			it 'shows us the bikes it has' do
 				expect(described_class.new([:bike]).bikes).to eq [:bike]
 			end
+
+			it 'drops broken bikes to a place' do
+				place     = double :place
+				bike      = double :bike, broken?: true
+				container = described_class.new([bike])
+				expect(place).to receive(:dock)
+				container.drop_broken_bikes_into(place)
+			end
+
+			it 'drops fixed bikes into a place' do
+				place     = double :place
+				bike      = double :bike, broken?: false
+				container = described_class.new([bike])
+				expect(place).to receive(:dock)
+				container.drop_bikes_into(place)
+			end
+
+
+			
+
 
 		end
 
