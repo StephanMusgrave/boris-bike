@@ -5,6 +5,19 @@ module BikeContainer
     @bikes.delete(bike)
   end
  
+	def dock(bike)
+		@bikes << bike
+		nil
+	end
+
+	def bikes
+		@bikes
+	end
+
+	def release_bike
+		release(available_bikes.pop)
+	end
+
 	def has_bikes? 
 		@bikes.any?
 	end
@@ -30,7 +43,5 @@ module BikeContainer
 	def drop_bikes_into(place)
 			drop_into(place, fixed_bikes)
 	end
-
-
 
 end

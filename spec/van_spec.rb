@@ -1,14 +1,13 @@
 require 'van'
+require_relative 'bike_container_spec'
 
 describe Van do
 	let (:van) 	{ Van.new }
 
-	it 'has no bikes' do
-		expect(van).not_to have_bikes
-	end
+	it_behaves_like BikeContainer
 
 	it 'picks up broken bikes from a place' do
-     place = double :place 
+    place = double :place 
 		expect(place).to receive(:release_broken_bikes).and_return([])
 		van.pickup_broken_bikes_from(place)
 	end
@@ -19,10 +18,6 @@ describe Van do
 		expect(van).to have_bikes
 	end
 
-	it 'shows us the bikes it has' do
-		expect(Van.new([:bike]).bikes).to eq [:bike]
-	end
-
 	it 'has some more bikes after picking some up' do
 		place   = double :place, release_broken_bikes: [:bike]
 		place2 = double :place, release_broken_bikes: [:bike]
@@ -31,18 +26,23 @@ describe Van do
 		expect(van.bikes).to eq [:bike, :bike]
 	end
 
+	it 'bikes can be loaded into the van' do
+		van.load(:bike)
+		expect(van).to have_bikes
+	end
+
 	it 'drops broken bikes to a place' do
 		place = double :place
-		bike = double :bike, broken?: true
-		van = Van.new([bike])
+		bike  = double :bike, broken?: true
+		van   = Van.new([bike])
 		expect(place).to receive(:dock)
 		van.drop_broken_bikes_into(place)
 	end
 
 	it 'drops fixed bikes into a place' do
 		place = double :place
-		bike = double :bike, broken?: false
-		van = Van.new([bike])
+		bike  = double :bike, broken?: false
+		van   = Van.new([bike])
 		expect(place).to receive(:dock)
 		van.drop_bikes_into(place)
 	end
