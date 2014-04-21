@@ -6,8 +6,9 @@ class Van
 	alias :load :dock
 	attr_reader :bikes
 
-	def initialize(bikes=[])
-		@bikes = bikes
+	def initialize(bikes=[], capacity=50)
+			@bikes = bikes
+			@capacity = capacity
 	end
 
 	def pickup_broken_bikes_from(place)

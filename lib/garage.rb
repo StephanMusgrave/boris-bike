@@ -3,13 +3,13 @@ require_relative 'bike_container'
 class Garage
 	include BikeContainer
 
-	def initialize(bikes=[])
-		@bikes = bikes
+	def initialize(bikes=[], capacity=100)
+			@bikes = bikes
+			@capacity = capacity
 	end
 
 	def fix_bikes
 		broken_bikes.each {|bike| bike.fix! }
-		# @bikes.last.fix!
 	end
 
 end

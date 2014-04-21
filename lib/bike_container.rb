@@ -6,6 +6,7 @@ module BikeContainer
   end
  
 	def dock(bike)
+		raise "FULL" if full?
 		@bikes << bike
 		nil
 	end
@@ -16,6 +17,14 @@ module BikeContainer
 
 	def release_bike
 		release(available_bikes.pop)
+	end
+
+	def capacity
+		@capacity
+	end
+
+	def full?
+		@bikes.count == capacity
 	end
 
 	def has_bikes? 
