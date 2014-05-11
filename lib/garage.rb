@@ -3,7 +3,7 @@ require_relative 'bike_container'
 class Garage
 	include BikeContainer
 
-	def initialize(bikes=[], capacity=100)
+	def initialize(bikes=[], capacity=10)
 			@bikes = bikes
 			@capacity = capacity
 	end

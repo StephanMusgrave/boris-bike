@@ -1,0 +1,84 @@
+
+Bike
+  is not broken when created
+  can break
+  can be fixed
+
+DockingStation
+  cannot release a broken bike
+  behaves like BikeContainer
+    is not full
+    can only be filled up to it's capacity
+    has no bikes
+    can be created with bikes
+    can release a bike
+    has available bikes
+    can dock a bike
+    let's us know that we returned the bike and we don't have one
+    releases a specific bike
+    shows us the bikes it has
+    drops broken bikes to a place
+    drops fixed bikes into a place
+    releasing broken bikes
+      releases all broken bikes to van
+      has no bikes after releasing the broken bikes
+      shows us the broken bikes
+      will not drop a bike into a full container
+
+Garage
+  fixes bikes
+  only fixes the broken bikes
+  behaves like BikeContainer
+    is not full
+    can only be filled up to it's capacity
+    has no bikes
+    can be created with bikes
+    can release a bike
+    has available bikes
+    can dock a bike
+    let's us know that we returned the bike and we don't have one
+    releases a specific bike
+    shows us the bikes it has
+    drops broken bikes to a place
+    drops fixed bikes into a place
+    releasing broken bikes
+      releases all broken bikes to van
+      has no bikes after releasing the broken bikes
+      shows us the broken bikes
+      will not drop a bike into a full container
+
+Person
+  Person has no bike when created
+  can have a bike
+  can have a bike accident
+  can rent a bike from a docking station
+  has a bike after renting one from the station
+  returns a bike to a docking station
+  has no bike after docking
+
+Van
+  picks up broken bikes from a place
+  has broken bikes after picking them up
+  has some more bikes after picking some up
+  bikes can be loaded into the van
+  behaves like BikeContainer
+    is not full
+    can only be filled up to it's capacity
+    has no bikes
+    can be created with bikes
+    can release a bike
+    has available bikes
+    can dock a bike
+    let's us know that we returned the bike and we don't have one
+    releases a specific bike
+    shows us the bikes it has
+    drops broken bikes to a place
+    drops fixed bikes into a place
+    releasing broken bikes
+      releases all broken bikes to van
+      has no bikes after releasing the broken bikes
+      shows us the broken bikes
+      will not drop a bike into a full container
+
+Finished in 0.02133 seconds
+65 examples, 0 failures

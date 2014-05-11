@@ -41,7 +41,7 @@ module BikeContainer
 
   def drop_into(place, bike_type)
 		bike_type.each do |bike|
-			place.dock(release(bike))
+			place.dock(release(bike)) unless place.full?
 		end
 	end
 
