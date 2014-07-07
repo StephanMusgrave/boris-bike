@@ -14,11 +14,8 @@ A program to manage a bike rental system
 |Technology                 |Used for                        |
 |---------------------------|--------------------------------|
 |Ruby                       |Programming language            |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
-|  |  |
+|Object Oriented Programming|  |
+|Test Driven Development  |  |
 
 
 ## Developed by
