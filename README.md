@@ -1,4 +1,5 @@
 # Boris Bikes
+Week 3 project at Makers Academy
 A program to manage a bike rental system
 
 ## Objectives
@@ -13,9 +14,9 @@ A program to manage a bike rental system
 
 |Technology                 |Used for                        |
 |---------------------------|--------------------------------|
-|Ruby                       |Programming language            |
+|Ruby 2.1.1                 |Programming language            |
 |Object Oriented Programming|  |
-|Test Driven Development  |  |
+|Rspec                      |Test Driven Development - unit testing  |
 
 
 ## Developed by
