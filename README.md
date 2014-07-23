@@ -1,5 +1,5 @@
 # Boris Bikes
-Week 3 project at Makers Academy
+Week 3 project at [Makers Academy]
 A program to manage a bike rental system
 
 ## Learning Objectives
@@ -26,3 +26,4 @@ A program to manage a bike rental system
 [Steve Musgrave]
 
 [Steve Musgrave]:https://github.com/StephanMusgrave
+[Makers Academy]:http://www.makersacademy.com
