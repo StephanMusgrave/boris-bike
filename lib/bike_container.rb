@@ -1,56 +1,56 @@
 module BikeContainer
-	BROKEN_BIKE_SELECTOR = ->(bike){bike.broken?}
+  BROKEN_BIKE_SELECTOR = ->(bike){ bike.broken? }
 
-	def release(bike)
+  def release(bike)
     @bikes.delete(bike)
   end
- 
-	def dock(bike)
-		raise "FULL" if full?
-		@bikes << bike
-		nil
-	end
 
-	def bikes
-		@bikes 
-	end
+  def dock(bike)
+    raise "FULL" if full?
+    @bikes << bike
+    nil
+  end
 
-	def release_bike
-		release(available_bikes.pop)
-	end
+  def bikes
+    @bikes 
+  end
 
-	def capacity
-		@capacity
-	end
+  def release_bike
+    release(available_bikes.pop)
+  end
 
-	def full?
-		@bikes.count == capacity
-	end
+  def capacity
+    @capacity
+  end
 
-	def has_bikes? 
-		@bikes.any?
-	end
+  def full?
+    @bikes.count == capacity
+  end
 
-	def available_bikes
-		@bikes.reject(&BROKEN_BIKE_SELECTOR)
-	end
+  def has_bikes? 
+    @bikes.any?
+  end
+
+  def available_bikes
+    @bikes.reject(&BROKEN_BIKE_SELECTOR)
+  end
 
   def broken_bikes
     @bikes.select(&BROKEN_BIKE_SELECTOR)
   end
 
   def drop_into(place, bike_type)
-		bike_type.each do |bike|
-			place.dock(release(bike)) unless place.full?
-		end
-	end
+    bike_type.each do |bike|
+      place.dock(release(bike)) unless place.full?
+    end
+  end
 
-	def drop_bikes_into(place)
-			drop_into(place, available_bikes)
-	end
+  def drop_bikes_into(place)
+    drop_into(place, available_bikes)
+  end
 
-	def drop_broken_bikes_into(place)
-		drop_into(place, broken_bikes)
-	end
+  def drop_broken_bikes_into(place)
+    drop_into(place, broken_bikes)
+  end
 
 end
